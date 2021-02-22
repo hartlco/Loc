@@ -1,10 +1,3 @@
-//
-//  Persistence.swift
-//  Loc
-//
-//  Created by Martin Hartl on 20.02.21.
-//
-
 import CoreData
 
 struct PersistenceController {
