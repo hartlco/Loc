@@ -15,5 +15,6 @@ struct MapDetailView: View {
             MapPin(coordinate: CLLocationCoordinate2D(latitude: item.latitude,
                                                       longitude: item.longitude))
         }
+        .edgesIgnoringSafeArea([.top, .bottom])
     }
 }

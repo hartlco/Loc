@@ -11,16 +11,15 @@ struct ContentView: View {
     private var days: FetchedResults<Day>
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(days) { day in
-                    NavigationLink(
-                        destination: DayView(day: day)) {
-                        Text("\(day.simplifiedDate ?? Date(), formatter: Self.dayDateFormatter)")
-                    }
+        List {
+            ForEach(days) { day in
+                NavigationLink(
+                    destination: DayView(day: day)) {
+                    Text("\(day.simplifiedDate ?? Date(), formatter: Self.dayDateFormatter)")
                 }
             }
         }
+        .navigationTitle("Days")
     }
 
     static let dayDateFormatter: DateFormatter = {

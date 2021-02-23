@@ -33,6 +33,7 @@ struct DayView: View {
             }
             .onDelete(perform: deleteItems)
         }
+        .navigationTitle("Locations")
     }
 
     private func deleteItems(offsets: IndexSet) {

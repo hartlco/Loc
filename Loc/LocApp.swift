@@ -14,12 +14,35 @@ struct LocApp: App {
     let persistenceController = PersistenceController.shared
     let locationManager = LocationService()
 
+    @State private var showsSettings = false
+
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            NavigationView {
+                ContentView()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            }
+            .toolbar {
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Button {
+                        showsSettings = true
+                    } label: {
+                        Label("Settings", systemImage: "gear")
+                    }
+                    .sheet(isPresented: $showsSettings) {
+                        Text("hi")
+                    }
+                    Spacer()
+                    Button {
+
+                    } label: {
+                        Label("Log now", systemImage: "mappin.circle")
+                    }
+                }
+            }
+            
         }
     }
 }
