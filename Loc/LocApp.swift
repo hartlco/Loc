@@ -14,14 +14,19 @@ struct LocApp: App {
     let persistenceController = PersistenceController.shared
     let locationManager = LocationService()
 
+    @StateObject var dayStore: DayStore
     @State private var showsSettings = false
-
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
+    init() {
+        let dayStore = DayStore()
+        self._dayStore = StateObject(wrappedValue: dayStore)
+    }
 
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+                ContentView(dayStore: dayStore)
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
             .toolbar {
@@ -32,7 +37,7 @@ struct LocApp: App {
                         Label("Settings", systemImage: "gear")
                     }
                     .sheet(isPresented: $showsSettings) {
-                        Text("hi")
+                        SettingsView()
                     }
                     Spacer()
                     Button {

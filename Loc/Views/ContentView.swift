@@ -3,16 +3,11 @@ import CoreData
 import MapKit
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Day.simplifiedDate, ascending: false)],
-        animation: .default)
-    private var days: FetchedResults<Day>
+    let dayStore: DayStore
 
     var body: some View {
         List {
-            ForEach(days) { day in
+            ForEach(dayStore.allDays) { day in
                 NavigationLink(
                     destination: DayView(day: day)) {
                     Text("\(day.simplifiedDate ?? Date(), formatter: Self.dayDateFormatter)")
