@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C51B66E025E98960005B4108 /* MKCoordinateRegion+Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B66DF25E98960005B4108 /* MKCoordinateRegion+Coordinates.swift */; };
 		C54713A925E3782700B3F33C /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713A825E3782700B3F33C /* MapDetailView.swift */; };
 		C54713AC25E3784C00B3F33C /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713AB25E3784C00B3F33C /* DayView.swift */; };
 		C54713B125E37CDA00B3F33C /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713B025E37CDA00B3F33C /* Day.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C51B66DF25E98960005B4108 /* MKCoordinateRegion+Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Coordinates.swift"; sourceTree = "<group>"; };
 		C54713A825E3782700B3F33C /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
 		C54713AB25E3784C00B3F33C /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		C54713B025E37CDA00B3F33C /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C51B66DE25E9894B005B4108 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C51B66DF25E98960005B4108 /* MKCoordinateRegion+Coordinates.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C54713A725E3781400B3F33C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +116,7 @@
 		C5F2146225E0E95F00D67F2F /* Loc */ = {
 			isa = PBXGroup;
 			children = (
+				C51B66DE25E9894B005B4108 /* Extensions */,
 				C54713BD25E37D6400B3F33C /* Services */,
 				C54713B425E37D0A00B3F33C /* Stores */,
 				C54713AF25E37CCB00B3F33C /* Models */,
@@ -206,6 +217,7 @@
 				C5F2147025E0E96000D67F2F /* Loc.xcdatamodeld in Sources */,
 				C54713C025E37D7F00B3F33C /* LocationService.swift in Sources */,
 				C54713C325E37E1800B3F33C /* ItemStore.swift in Sources */,
+				C51B66E025E98960005B4108 /* MKCoordinateRegion+Coordinates.swift in Sources */,
 				C5F2146425E0E95F00D67F2F /* LocApp.swift in Sources */,
 				C5BDF6DB25E6275100EACA71 /* SettingsView.swift in Sources */,
 			);
