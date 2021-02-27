@@ -9,7 +9,7 @@ struct ContentView: View {
         List {
             ForEach(dayStore.allDays) { day in
                 NavigationLink(
-                    destination: DayView(day: day)) {
+                    destination: DayView(itemsStore: dayStore.itemsStore(for: day))) {
                     Text("\(day.simplifiedDate ?? Date(), formatter: Self.dayDateFormatter)")
                 }
             }

@@ -1,17 +1,21 @@
 import Foundation
 import CoreData
+import OSLog
 
 final class DayStore: NSObject, ObservableObject {
     private let persistenceController: PersistenceController
     private let calendar: Calendar
     private let daysController: NSFetchedResultsController<Day>
+    private let logger: Logger
 
     @Published var allDays: [Day] = []
 
     init(persistenceController: PersistenceController = .shared,
-         calendar: Calendar = .current) {
+         calendar: Calendar = .current,
+         logger: Logger) {
         self.persistenceController = persistenceController
         self.calendar = calendar
+        self.logger = logger
         self.daysController = .init(fetchRequest: Day.allRequest(),
                                     managedObjectContext: persistenceController.container.viewContext,
                                     sectionNameKeyPath: nil,
@@ -22,10 +26,11 @@ final class DayStore: NSObject, ObservableObject {
         self.daysController.delegate = self
 
         do {
+            logger.info("Fetching allDays")
             try daysController.performFetch()
             allDays = daysController.fetchedObjects ?? []
         } catch {
-            print("Failed to fetch all days")
+            logger.critical("Failed to fetch allDays")
         }
     }
 
@@ -44,6 +49,10 @@ final class DayStore: NSObject, ObservableObject {
 
             return day
         }
+    }
+
+    func itemsStore(for day: Day) -> ItemsStore {
+        ItemsStore(day: day, logger: logger)
     }
 }
 

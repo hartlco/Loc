@@ -1,5 +1,6 @@
 import MapKit
 
+// https://gist.github.com/robmooney/923301#gistcomment-2765115
 extension MKCoordinateRegion {
     init(coordinates: [CLLocationCoordinate2D]) {
         var minLat: CLLocationDegrees = 90.0

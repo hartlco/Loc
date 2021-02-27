@@ -5,7 +5,7 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
     private let manager: CLLocationManager
     private let itemStore: ItemStore
 
-    init(itemStore: ItemStore = .init()) {
+    init(itemStore: ItemStore) {
         self.manager = CLLocationManager()
         self.itemStore = itemStore
 

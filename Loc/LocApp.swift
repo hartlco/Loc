@@ -1,10 +1,10 @@
 import SwiftUI
 import CoreLocation
 import CoreData
+import OSLog
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        print("Your code here")
         return true
     }
 }
@@ -12,15 +12,18 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct LocApp: App {
     let persistenceController = PersistenceController.shared
-    let locationManager = LocationService()
+    let locationManager: LocationService
+    let logger = Logger(subsystem: "co.hartl.Loc", category: "Main-App")
 
     @StateObject var dayStore: DayStore
     @State private var showsSettings = false
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     init() {
-        let dayStore = DayStore()
+        let dayStore = DayStore(logger: logger)
         self._dayStore = StateObject(wrappedValue: dayStore)
+        self.locationManager = LocationService(itemStore: ItemStore(dayStore: dayStore,
+                                                                    logger: logger))
     }
 
     var body: some Scene {

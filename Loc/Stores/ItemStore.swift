@@ -1,17 +1,21 @@
 import Foundation
 import MapKit
+import OSLog
 
 final class ItemStore {
-    let persistenceController: PersistenceController
-    let calendar: Calendar
-    let dayStore: DayStore
+    private let persistenceController: PersistenceController
+    private let calendar: Calendar
+    private let dayStore: DayStore
+    private let logger: Logger
 
     init(persistenceController: PersistenceController = .shared,
          calendar: Calendar = .current,
-         dayStore: DayStore = .init()) {
+         dayStore: DayStore,
+         logger: Logger) {
         self.persistenceController = persistenceController
         self.calendar = calendar
         self.dayStore = dayStore
+        self.logger = logger
     }
 
     func storeItem(for location: CLLocation, placemarks: [CLPlacemark]) {
@@ -37,10 +41,8 @@ final class ItemStore {
         do {
             try self.persistenceController.container.viewContext.save()
         } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            logger.critical("Failed to storeItem: \(nsError) \(nsError.userInfo)")
         }
     }
 }
