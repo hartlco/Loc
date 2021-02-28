@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 import OSLog
 
-final class ItemsStore: NSObject, ObservableObject {
+final class ItemsForDay: NSObject, ObservableObject {
     private let persistenceController: PersistenceController
     private let itemsController: NSFetchedResultsController<Item>
     private let logger: Logger
@@ -43,7 +43,7 @@ final class ItemsStore: NSObject, ObservableObject {
     }
 }
 
-extension ItemsStore: NSFetchedResultsControllerDelegate {
+extension ItemsForDay: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         guard let allItems = controller.fetchedObjects as? [Item] else { return }
 

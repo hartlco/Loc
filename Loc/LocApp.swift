@@ -40,7 +40,8 @@ struct LocApp: App {
                         Label("Settings", systemImage: "gear")
                     }
                     .sheet(isPresented: $showsSettings) {
-                        SettingsView()
+                        SettingsView(dayStore: dayStore,
+                                     exportService: ExportService(dayStore: dayStore))
                     }
                     Spacer()
                     Button {

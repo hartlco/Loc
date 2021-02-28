@@ -3,11 +3,11 @@ import CoreData
 import MapKit
 
 struct DayView: View {
-    let itemsStore: ItemsStore
+    let itemsStore: ItemsForDay
 
     @State private var region: MKCoordinateRegion
 
-    init(itemsStore: ItemsStore) {
+    init(itemsStore: ItemsForDay) {
         self.itemsStore = itemsStore
 
         let allItems = itemsStore.allItems
