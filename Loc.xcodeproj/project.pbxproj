@@ -10,6 +10,7 @@
 		C51B66E025E98960005B4108 /* MKCoordinateRegion+Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B66DF25E98960005B4108 /* MKCoordinateRegion+Coordinates.swift */; };
 		C51B66E225EA068D005B4108 /* ItemsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B66E125EA068D005B4108 /* ItemsStore.swift */; };
 		C51B66E425EA0701005B4108 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B66E325EA0701005B4108 /* Item.swift */; };
+		C51B66E925EA2766005B4108 /* ExportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B66E825EA2766005B4108 /* ExportModel.swift */; };
 		C54713A925E3782700B3F33C /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713A825E3782700B3F33C /* MapDetailView.swift */; };
 		C54713AC25E3784C00B3F33C /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713AB25E3784C00B3F33C /* DayView.swift */; };
 		C54713B125E37CDA00B3F33C /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713B025E37CDA00B3F33C /* Day.swift */; };
@@ -29,6 +30,7 @@
 		C51B66DF25E98960005B4108 /* MKCoordinateRegion+Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Coordinates.swift"; sourceTree = "<group>"; };
 		C51B66E125EA068D005B4108 /* ItemsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsStore.swift; sourceTree = "<group>"; };
 		C51B66E325EA0701005B4108 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		C51B66E825EA2766005B4108 /* ExportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportModel.swift; sourceTree = "<group>"; };
 		C54713A825E3782700B3F33C /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
 		C54713AB25E3784C00B3F33C /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		C54713B025E37CDA00B3F33C /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				C54713B025E37CDA00B3F33C /* Day.swift */,
 				C51B66E325EA0701005B4108 /* Item.swift */,
+				C51B66E825EA2766005B4108 /* ExportModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C51B66E925EA2766005B4108 /* ExportModel.swift in Sources */,
 				C54713B125E37CDA00B3F33C /* Day.swift in Sources */,
 				C51B66E225EA068D005B4108 /* ItemsStore.swift in Sources */,
 				C54713A925E3782700B3F33C /* MapDetailView.swift in Sources */,
