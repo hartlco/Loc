@@ -26,7 +26,8 @@ struct LocApp: App {
         let dayStore = DayStore(logger: logger)
         self._dayStore = StateObject(wrappedValue: dayStore)
         self.locationManager = LocationService(itemStore: ItemStore(dayStore: dayStore,
-                                                                    logger: logger))
+                                                                    logger: logger),
+                                               logger: logger)
     }
 
     var body: some Scene {
@@ -48,7 +49,7 @@ struct LocApp: App {
                     }
                     Spacer()
                     Button {
-
+                        locationManager.requestToStoreCurrentLocation()
                     } label: {
                         Label("Log now", systemImage: "mappin.circle")
                     }
