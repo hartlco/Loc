@@ -31,7 +31,7 @@ final class ItemStore {
             newItem.place = place
 
         }
-        
+
         newItem.timestamp = Date()
         newItem.latitude = location.coordinate.latitude
         newItem.longitude = location.coordinate.longitude

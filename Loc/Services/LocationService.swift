@@ -22,7 +22,7 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
             let geocoder = CLGeocoder()
             geocoder.reverseGeocodeLocation(
                 location,
-                completionHandler: { placemarks, error in
+                completionHandler: { placemarks, _ in
                     self.itemStore.storeItem(for: location, placemarks: placemarks ?? [])
                 })
         }

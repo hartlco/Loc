@@ -6,7 +6,11 @@ struct MapDetailView: View {
     private let item: Item
 
     init(item: Item) {
-        self._region = State<MKCoordinateRegion>(initialValue: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: item.latitude, longitude: item.longitude), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)))
+        let coordinate = CLLocationCoordinate2D(latitude: item.latitude, longitude: item.longitude)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: coordinate, span: span )
+        self._region = State<MKCoordinateRegion>(initialValue: region)
+
         self.item = item
     }
 

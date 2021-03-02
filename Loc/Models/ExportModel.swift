@@ -4,17 +4,17 @@ struct ExportModel: Codable {
     let items: [ExportModel.ExportItem]
 
     struct ExportItem: Codable {
-        struct Place: Codable {
-            let name: String?
-            let isoCountryCode: String?
-            let country: String?
-            let administrativeArea: String?
-        }
-
         let date: Date
         let longitude: Double
         let latitude: Double
         let place: Place?
+    }
+
+    struct Place: Codable {
+        let name: String?
+        let isoCountryCode: String?
+        let country: String?
+        let administrativeArea: String?
     }
 }
 
@@ -36,12 +36,12 @@ extension ExportModel.ExportItem {
         self.latitude = item.latitude
         self.longitude = item.longitude
         self.place = item.place.flatMap { place in
-            return ExportModel.ExportItem.Place(place: place)
+            return ExportModel.Place(place: place)
         }
     }
 }
 
-extension ExportModel.ExportItem.Place {
+extension ExportModel.Place {
     init(place: Place) {
         if let name = place.name,
            !name.isEmpty {

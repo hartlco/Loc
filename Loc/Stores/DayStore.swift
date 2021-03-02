@@ -53,16 +53,26 @@ final class DayStore: NSObject, ObservableObject {
         let now = Date()
         let simplifiedComponents = calendar.dateComponents([.year, .month, .day],
                                                            from: now)
-        let simplifiedDate = calendar.date(from: simplifiedComponents)!
-        let days = try! persistenceController.container.viewContext.fetch(Day.fetchRequest(for: simplifiedDate))
 
-        if let day = days.first {
-            return day
-        } else {
-            let day = Day(context: self.persistenceController.container.viewContext)
-            day.simplifiedDate = simplifiedDate
+        guard let simplifiedDate = calendar.date(from: simplifiedComponents) else {
+            logger.critical("simplifiedDate could not be created")
+            fatalError()
+        }
 
-            return day
+        do {
+            let days = try persistenceController.container.viewContext.fetch(Day.fetchRequest(for: simplifiedDate))
+
+            if let day = days.first {
+                return day
+            } else {
+                let day = Day(context: persistenceController.container.viewContext)
+                day.simplifiedDate = simplifiedDate
+
+                return day
+            }
+        } catch {
+            logger.critical("PersistenceController could not fetch day")
+            return Day(context: persistenceController.container.viewContext)
         }
     }
 

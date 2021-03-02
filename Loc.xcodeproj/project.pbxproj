@@ -161,6 +161,7 @@
 				C5F2145C25E0E95F00D67F2F /* Sources */,
 				C5F2145D25E0E95F00D67F2F /* Frameworks */,
 				C5F2145E25E0E95F00D67F2F /* Resources */,
+				C569D68925EE134C00A64DA7 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -214,6 +215,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C569D68925EE134C00A64DA7 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which mint >/dev/null; then\n  mint run SwiftLint\nelse\n  echo \"warning: Mint not installed. It's required to run SwiftLint. Download from https://github.com/yonaskolb/Mint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C5F2145C25E0E95F00D67F2F /* Sources */ = {
