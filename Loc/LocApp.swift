@@ -33,7 +33,7 @@ struct LocApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView(dayStore: dayStore)
+                ContentView(dayStore: dayStore, locationService: locationManager)
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
             .toolbar {

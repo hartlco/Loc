@@ -4,9 +4,20 @@ import MapKit
 
 struct ContentView: View {
     let dayStore: DayStore
+    let locationService: LocationService
 
     var body: some View {
         List {
+            if !locationService.hasLocationPermission {
+                Button(action: {
+                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                }, label: {
+                    Label(
+                        title: { Text("Location Service disabled") },
+                        icon: { Image(systemName: "exclamationmark.triangle.fill") }
+                    )
+                })
+            }
             ForEach(dayStore.allDays) { day in
                 NavigationLink(
                     destination: DayView(itemsStore: dayStore.itemsStore(for: day))) {
