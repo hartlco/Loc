@@ -1,2 +1,2 @@
 ## Compilation
-- Install [Minit](https://github.com/yonaskolb/Mint)
+- Install [Mint](https://github.com/yonaskolb/Mint)
