@@ -1,6 +1,12 @@
 import CoreData
+import OSLog
 
 struct PersistenceController {
+    struct Constants {
+        static let groupName = "group.co.hartl.loc"
+        static let persistenceContainerName = "Loc"
+    }
+
     static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
@@ -22,8 +28,18 @@ struct PersistenceController {
 
     let container: NSPersistentContainer
 
-    init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "Loc")
+    // swiftlint:disable line_length
+    init(inMemory: Bool = false,
+         fileManager: FileManager = .default) {
+        container = NSPersistentContainer(name: Constants.persistenceContainerName)
+        guard let containerURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: Constants.groupName) else {
+            // TODO: Loggin
+            fatalError()
+        }
+
+        let storeURL = containerURL.appendingPathComponent(Constants.persistenceContainerName + ".sqlite")
+        container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: storeURL)]
+
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
