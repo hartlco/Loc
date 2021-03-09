@@ -2,6 +2,7 @@ import SwiftUI
 import CoreLocation
 import CoreData
 import OSLog
+import Model
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     func application(

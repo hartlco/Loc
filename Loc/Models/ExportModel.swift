@@ -1,4 +1,5 @@
 import Foundation
+import Model
 
 struct ExportModel: Codable {
     let items: [ExportModel.ExportItem]

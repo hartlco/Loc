@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-extension Day {
+public extension Day {
     static func allRequest() -> NSFetchRequest<Day> {
         let request: NSFetchRequest<Day> = Day.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Day.simplifiedDate, ascending: false)]

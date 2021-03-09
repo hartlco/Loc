@@ -1,6 +1,7 @@
 import Foundation
 import CoreData
 import OSLog
+import Model
 
 final class DayStore: NSObject, ObservableObject {
     private let persistenceController: PersistenceController

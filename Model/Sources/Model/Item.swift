@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-extension Item {
+public extension Item {
     static func allRequest() -> NSFetchRequest<Item> {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Item.timestamp, ascending: false)]

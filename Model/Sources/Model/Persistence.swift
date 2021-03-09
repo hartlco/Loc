@@ -1,13 +1,13 @@
 import CoreData
 import OSLog
 
-struct PersistenceController {
+public struct PersistenceController {
     struct Constants {
         static let groupName = "group.co.hartl.loc"
         static let persistenceContainerName = "Loc"
     }
 
-    static let shared = PersistenceController()
+    public static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
@@ -26,12 +26,22 @@ struct PersistenceController {
         return result
     }()
 
-    let container: NSPersistentContainer
+    public let container: NSPersistentContainer
 
     // swiftlint:disable line_length
     init(inMemory: Bool = false,
          fileManager: FileManager = .default) {
-        container = NSPersistentContainer(name: Constants.persistenceContainerName)
+        guard let modelURL = Bundle.module.url(forResource: Constants.persistenceContainerName,
+                                               withExtension: "momd") else {
+            fatalError()
+        }
+
+        guard let model = NSManagedObjectModel(contentsOf: modelURL) else {
+            fatalError()
+        }
+
+        container = NSPersistentContainer(name: Constants.persistenceContainerName,
+                                          managedObjectModel: model)
         guard let containerURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: Constants.groupName) else {
             // TODO: Loggin
             fatalError()

@@ -1,5 +1,6 @@
 import SwiftUI
 import MapKit
+import Model
 
 struct MapDetailView: View {
     @State private var region: MKCoordinateRegion

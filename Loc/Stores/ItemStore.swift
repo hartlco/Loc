@@ -1,6 +1,7 @@
 import Foundation
 import MapKit
 import OSLog
+import Model
 
 final class ItemStore {
     private let persistenceController: PersistenceController
