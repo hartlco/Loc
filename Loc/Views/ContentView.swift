@@ -1,6 +1,7 @@
 import SwiftUI
 import CoreData
 import MapKit
+import Store
 
 struct ContentView: View {
     let dayStore: DayStore

@@ -3,6 +3,7 @@ import CoreLocation
 import CoreData
 import OSLog
 import Model
+import Store
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     func application(

@@ -8,15 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		C51B66E025E98960005B4108 /* MKCoordinateRegion+Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B66DF25E98960005B4108 /* MKCoordinateRegion+Coordinates.swift */; };
-		C51B66E225EA068D005B4108 /* ItemsForDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B66E125EA068D005B4108 /* ItemsForDay.swift */; };
 		C51B66E925EA2766005B4108 /* ExportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B66E825EA2766005B4108 /* ExportModel.swift */; };
 		C54713A925E3782700B3F33C /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713A825E3782700B3F33C /* MapDetailView.swift */; };
 		C54713AC25E3784C00B3F33C /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713AB25E3784C00B3F33C /* DayView.swift */; };
-		C54713BB25E37D2200B3F33C /* DayStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713BA25E37D2200B3F33C /* DayStore.swift */; };
 		C54713C025E37D7F00B3F33C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713BF25E37D7F00B3F33C /* LocationService.swift */; };
-		C54713C325E37E1800B3F33C /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713C225E37E1800B3F33C /* ItemStore.swift */; };
 		C59CF65525F7425000352E02 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = C59CF65425F7425000352E02 /* Model */; };
 		C5BDF6DB25E6275100EACA71 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDF6DA25E6275100EACA71 /* SettingsView.swift */; };
+		C5CADC6125F8944C003223B0 /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = C5CADC6025F8944C003223B0 /* Store */; };
 		C5CCCA2E25EB6C2E003356CC /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CCCA2D25EB6C2E003356CC /* ExportService.swift */; };
 		C5F2146425E0E95F00D67F2F /* LocApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2146325E0E95F00D67F2F /* LocApp.swift */; };
 		C5F2146625E0E95F00D67F2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2146525E0E95F00D67F2F /* ContentView.swift */; };
@@ -26,16 +24,14 @@
 
 /* Begin PBXFileReference section */
 		C51B66DF25E98960005B4108 /* MKCoordinateRegion+Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Coordinates.swift"; sourceTree = "<group>"; };
-		C51B66E125EA068D005B4108 /* ItemsForDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsForDay.swift; sourceTree = "<group>"; };
 		C51B66E825EA2766005B4108 /* ExportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportModel.swift; sourceTree = "<group>"; };
 		C54713A825E3782700B3F33C /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
 		C54713AB25E3784C00B3F33C /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
-		C54713BA25E37D2200B3F33C /* DayStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStore.swift; sourceTree = "<group>"; };
 		C54713BF25E37D7F00B3F33C /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
-		C54713C225E37E1800B3F33C /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		C59CF64D25F73FF100352E02 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
 		C5BDF6DA25E6275100EACA71 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C5CAC65E25F4A16800744D5C /* Loc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Loc.entitlements; sourceTree = "<group>"; };
+		C5CADC5B25F893AD003223B0 /* Store */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Store; sourceTree = "<group>"; };
 		C5CCCA2D25EB6C2E003356CC /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
 		C5F2146025E0E95F00D67F2F /* Loc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F2146325E0E95F00D67F2F /* LocApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocApp.swift; sourceTree = "<group>"; };
@@ -50,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5CADC6125F8944C003223B0 /* Store in Frameworks */,
 				C59CF65525F7425000352E02 /* Model in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,16 +81,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		C54713B425E37D0A00B3F33C /* Stores */ = {
-			isa = PBXGroup;
-			children = (
-				C54713BA25E37D2200B3F33C /* DayStore.swift */,
-				C54713C225E37E1800B3F33C /* ItemStore.swift */,
-				C51B66E125EA068D005B4108 /* ItemsForDay.swift */,
-			);
-			path = Stores;
-			sourceTree = "<group>";
-		};
 		C54713BD25E37D6400B3F33C /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +100,7 @@
 		C5F2145725E0E95F00D67F2F = {
 			isa = PBXGroup;
 			children = (
+				C5CADC5B25F893AD003223B0 /* Store */,
 				C59CF64D25F73FF100352E02 /* Model */,
 				C5F2146225E0E95F00D67F2F /* Loc */,
 				C5F2146125E0E95F00D67F2F /* Products */,
@@ -134,7 +122,6 @@
 				C5CAC65E25F4A16800744D5C /* Loc.entitlements */,
 				C51B66DE25E9894B005B4108 /* Extensions */,
 				C54713BD25E37D6400B3F33C /* Services */,
-				C54713B425E37D0A00B3F33C /* Stores */,
 				C54713AF25E37CCB00B3F33C /* Models */,
 				C54713A725E3781400B3F33C /* Views */,
 				C5F2146325E0E95F00D67F2F /* LocApp.swift */,
@@ -172,6 +159,7 @@
 			name = Loc;
 			packageProductDependencies = (
 				C59CF65425F7425000352E02 /* Model */,
+				C5CADC6025F8944C003223B0 /* Store */,
 			);
 			productName = Loc;
 			productReference = C5F2146025E0E95F00D67F2F /* Loc.app */;
@@ -249,13 +237,10 @@
 			files = (
 				C51B66E925EA2766005B4108 /* ExportModel.swift in Sources */,
 				C5CCCA2E25EB6C2E003356CC /* ExportService.swift in Sources */,
-				C51B66E225EA068D005B4108 /* ItemsForDay.swift in Sources */,
 				C54713A925E3782700B3F33C /* MapDetailView.swift in Sources */,
 				C54713AC25E3784C00B3F33C /* DayView.swift in Sources */,
-				C54713BB25E37D2200B3F33C /* DayStore.swift in Sources */,
 				C5F2146625E0E95F00D67F2F /* ContentView.swift in Sources */,
 				C54713C025E37D7F00B3F33C /* LocationService.swift in Sources */,
-				C54713C325E37E1800B3F33C /* ItemStore.swift in Sources */,
 				C51B66E025E98960005B4108 /* MKCoordinateRegion+Coordinates.swift in Sources */,
 				C5F2146425E0E95F00D67F2F /* LocApp.swift in Sources */,
 				C5BDF6DB25E6275100EACA71 /* SettingsView.swift in Sources */,
@@ -454,6 +439,10 @@
 		C59CF65425F7425000352E02 /* Model */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Model;
+		};
+		C5CADC6025F8944C003223B0 /* Store */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Store;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

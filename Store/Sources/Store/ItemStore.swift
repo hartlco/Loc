@@ -3,23 +3,23 @@ import MapKit
 import OSLog
 import Model
 
-final class ItemStore {
+public final class ItemStore {
     private let persistenceController: PersistenceController
     private let calendar: Calendar
     private let dayStore: DayStore
     private let logger: Logger
 
-    init(persistenceController: PersistenceController = .shared,
-         calendar: Calendar = .current,
-         dayStore: DayStore,
-         logger: Logger) {
+    public init(persistenceController: PersistenceController = .shared,
+                calendar: Calendar = .current,
+                dayStore: DayStore,
+                logger: Logger) {
         self.persistenceController = persistenceController
         self.calendar = calendar
         self.dayStore = dayStore
         self.logger = logger
     }
 
-    func storeItem(for location: CLLocation, placemarks: [CLPlacemark]) {
+    public func storeItem(for location: CLLocation, placemarks: [CLPlacemark]) {
         let dayForNow = dayStore.dayForNow()
         let newItem = Item(context: self.persistenceController.container.viewContext)
 

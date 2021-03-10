@@ -1,13 +1,14 @@
 import SwiftUI
 import CoreData
 import MapKit
+import Store
 
 struct DayView: View {
-    let itemsStore: ItemsForDay
+    let itemsStore: ItemsForDayStore
 
     @State private var region: MKCoordinateRegion
 
-    init(itemsStore: ItemsForDay) {
+    init(itemsStore: ItemsForDayStore) {
         self.itemsStore = itemsStore
 
         let allItems = itemsStore.allItems

@@ -1,5 +1,6 @@
 import Foundation
 import Model
+import Store
 
 final class ExportService {
     private let dayStore: DayStore

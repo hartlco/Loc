@@ -3,16 +3,16 @@ import CoreData
 import OSLog
 import Model
 
-final class ItemsForDay: NSObject, ObservableObject {
+public final class ItemsForDayStore: NSObject, ObservableObject {
     private let persistenceController: PersistenceController
     private let itemsController: NSFetchedResultsController<Item>
     private let logger: Logger
 
-    @Published var allItems: [Item] = []
+    @Published public var allItems: [Item] = []
 
-    init(persistenceController: PersistenceController = .shared,
-         day: Day,
-         logger: Logger) {
+    public init(persistenceController: PersistenceController = .shared,
+                day: Day,
+                logger: Logger) {
         self.persistenceController = persistenceController
         self.itemsController = .init(fetchRequest: Item.allForDayRequest(day: day),
                                      managedObjectContext: persistenceController.container.viewContext,
@@ -33,7 +33,7 @@ final class ItemsForDay: NSObject, ObservableObject {
         }
     }
 
-    func delete(item: Item) {
+    public func delete(item: Item) {
         do {
             persistenceController.container.viewContext.delete(item)
             try persistenceController.container.viewContext.save()
@@ -44,8 +44,8 @@ final class ItemsForDay: NSObject, ObservableObject {
     }
 }
 
-extension ItemsForDay: NSFetchedResultsControllerDelegate {
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+extension ItemsForDayStore: NSFetchedResultsControllerDelegate {
+    public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         guard let allItems = controller.fetchedObjects as? [Item] else { return }
 
         self.allItems = allItems

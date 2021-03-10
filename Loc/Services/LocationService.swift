@@ -1,6 +1,7 @@
 import Foundation
 import MapKit
 import OSLog
+import Store
 
 final class LocationService: NSObject {
     private let manager: CLLocationManager

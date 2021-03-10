@@ -3,19 +3,19 @@ import CoreData
 import OSLog
 import Model
 
-final class DayStore: NSObject, ObservableObject {
+public final class DayStore: NSObject, ObservableObject {
     private let persistenceController: PersistenceController
     private let calendar: Calendar
     private let daysController: NSFetchedResultsController<Day>
     private let itemsController: NSFetchedResultsController<Item>
     private let logger: Logger
 
-    @Published var allDays: [Day] = []
-    @Published var allItems: [Item] = []
+    @Published public var allDays: [Day] = []
+    @Published public var allItems: [Item] = []
 
-    init(persistenceController: PersistenceController = .shared,
-         calendar: Calendar = .current,
-         logger: Logger) {
+    public init(persistenceController: PersistenceController = .shared,
+                calendar: Calendar = .current,
+                logger: Logger) {
         self.persistenceController = persistenceController
         self.calendar = calendar
         self.logger = logger
@@ -50,7 +50,7 @@ final class DayStore: NSObject, ObservableObject {
         }
     }
 
-    func dayForNow() -> Day {
+    public func dayForNow() -> Day {
         let now = Date()
         let simplifiedComponents = calendar.dateComponents([.year, .month, .day],
                                                            from: now)
@@ -77,13 +77,13 @@ final class DayStore: NSObject, ObservableObject {
         }
     }
 
-    func itemsStore(for day: Day) -> ItemsForDay {
-        ItemsForDay(day: day, logger: logger)
+    public func itemsStore(for day: Day) -> ItemsForDayStore {
+        ItemsForDayStore(day: day, logger: logger)
     }
 }
 
 extension DayStore: NSFetchedResultsControllerDelegate {
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if let allDays = controller.fetchedObjects as? [Day] {
             self.allDays = allDays
         }

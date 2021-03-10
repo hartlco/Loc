@@ -1,4 +1,5 @@
 import SwiftUI
+import Store
 
 struct SettingsView: View {
     let dayStore: DayStore
