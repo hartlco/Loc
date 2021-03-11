@@ -12,6 +12,13 @@
 		C54713A925E3782700B3F33C /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713A825E3782700B3F33C /* MapDetailView.swift */; };
 		C54713AC25E3784C00B3F33C /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713AB25E3784C00B3F33C /* DayView.swift */; };
 		C54713C025E37D7F00B3F33C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713BF25E37D7F00B3F33C /* LocationService.swift */; };
+		C5916E3225F9E52E006DEADB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5916E3125F9E52E006DEADB /* WidgetKit.framework */; };
+		C5916E3425F9E52E006DEADB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5916E3325F9E52E006DEADB /* SwiftUI.framework */; };
+		C5916E3725F9E52E006DEADB /* Loc_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5916E3625F9E52E006DEADB /* Loc_Widget.swift */; };
+		C5916E3925F9E52E006DEADB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5916E3825F9E52E006DEADB /* Assets.xcassets */; };
+		C5916E3D25F9E52E006DEADB /* Loc-WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C5916E3025F9E52E006DEADB /* Loc-WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C5916E4525F9E591006DEADB /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = C5916E4425F9E591006DEADB /* Model */; };
+		C5916E4725F9E591006DEADB /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = C5916E4625F9E591006DEADB /* Store */; };
 		C59CF65525F7425000352E02 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = C59CF65425F7425000352E02 /* Model */; };
 		C5BDF6DB25E6275100EACA71 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDF6DA25E6275100EACA71 /* SettingsView.swift */; };
 		C5CADC6125F8944C003223B0 /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = C5CADC6025F8944C003223B0 /* Store */; };
@@ -22,12 +29,42 @@
 		C5F2146B25E0E96000D67F2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5F2146A25E0E96000D67F2F /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C5916E3B25F9E52E006DEADB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5F2145825E0E95F00D67F2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C5916E2F25F9E52E006DEADB;
+			remoteInfo = "Loc-WidgetExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C5916E3E25F9E52E006DEADB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C5916E3D25F9E52E006DEADB /* Loc-WidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C51B66DF25E98960005B4108 /* MKCoordinateRegion+Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Coordinates.swift"; sourceTree = "<group>"; };
 		C51B66E825EA2766005B4108 /* ExportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportModel.swift; sourceTree = "<group>"; };
 		C54713A825E3782700B3F33C /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
 		C54713AB25E3784C00B3F33C /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		C54713BF25E37D7F00B3F33C /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		C5916E3025F9E52E006DEADB /* Loc-WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Loc-WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5916E3125F9E52E006DEADB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		C5916E3325F9E52E006DEADB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		C5916E3625F9E52E006DEADB /* Loc_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loc_Widget.swift; sourceTree = "<group>"; };
+		C5916E3825F9E52E006DEADB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C5916E3A25F9E52E006DEADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C59CF64D25F73FF100352E02 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
 		C5BDF6DA25E6275100EACA71 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C5CAC65E25F4A16800744D5C /* Loc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Loc.entitlements; sourceTree = "<group>"; };
@@ -42,6 +79,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C5916E2D25F9E52E006DEADB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5916E4525F9E591006DEADB /* Model in Frameworks */,
+				C5916E3425F9E52E006DEADB /* SwiftUI.framework in Frameworks */,
+				C5916E4725F9E591006DEADB /* Store in Frameworks */,
+				C5916E3225F9E52E006DEADB /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C5F2145D25E0E95F00D67F2F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,9 +138,21 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		C5916E3525F9E52E006DEADB /* Loc-Widget */ = {
+			isa = PBXGroup;
+			children = (
+				C5916E3625F9E52E006DEADB /* Loc_Widget.swift */,
+				C5916E3825F9E52E006DEADB /* Assets.xcassets */,
+				C5916E3A25F9E52E006DEADB /* Info.plist */,
+			);
+			path = "Loc-Widget";
+			sourceTree = "<group>";
+		};
 		C59CF65325F7425000352E02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5916E3125F9E52E006DEADB /* WidgetKit.framework */,
+				C5916E3325F9E52E006DEADB /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -103,6 +163,7 @@
 				C5CADC5B25F893AD003223B0 /* Store */,
 				C59CF64D25F73FF100352E02 /* Model */,
 				C5F2146225E0E95F00D67F2F /* Loc */,
+				C5916E3525F9E52E006DEADB /* Loc-Widget */,
 				C5F2146125E0E95F00D67F2F /* Products */,
 				C59CF65325F7425000352E02 /* Frameworks */,
 			);
@@ -112,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				C5F2146025E0E95F00D67F2F /* Loc.app */,
+				C5916E3025F9E52E006DEADB /* Loc-WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +205,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C5916E2F25F9E52E006DEADB /* Loc-WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5916E4125F9E52E006DEADB /* Build configuration list for PBXNativeTarget "Loc-WidgetExtension" */;
+			buildPhases = (
+				C5916E2C25F9E52E006DEADB /* Sources */,
+				C5916E2D25F9E52E006DEADB /* Frameworks */,
+				C5916E2E25F9E52E006DEADB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Loc-WidgetExtension";
+			packageProductDependencies = (
+				C5916E4425F9E591006DEADB /* Model */,
+				C5916E4625F9E591006DEADB /* Store */,
+			);
+			productName = "Loc-WidgetExtension";
+			productReference = C5916E3025F9E52E006DEADB /* Loc-WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		C5F2145F25E0E95F00D67F2F /* Loc */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C5F2147425E0E96000D67F2F /* Build configuration list for PBXNativeTarget "Loc" */;
@@ -151,10 +234,12 @@
 				C5F2145D25E0E95F00D67F2F /* Frameworks */,
 				C5F2145E25E0E95F00D67F2F /* Resources */,
 				C569D68925EE134C00A64DA7 /* SwiftLint */,
+				C5916E3E25F9E52E006DEADB /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C5916E3C25F9E52E006DEADB /* PBXTargetDependency */,
 			);
 			name = Loc;
 			packageProductDependencies = (
@@ -174,6 +259,9 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					C5916E2F25F9E52E006DEADB = {
+						CreatedOnToolsVersion = 12.4;
+					};
 					C5F2145F25E0E95F00D67F2F = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -193,11 +281,20 @@
 			projectRoot = "";
 			targets = (
 				C5F2145F25E0E95F00D67F2F /* Loc */,
+				C5916E2F25F9E52E006DEADB /* Loc-WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C5916E2E25F9E52E006DEADB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5916E3925F9E52E006DEADB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C5F2145E25E0E95F00D67F2F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,6 +328,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C5916E2C25F9E52E006DEADB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5916E3725F9E52E006DEADB /* Loc_Widget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C5F2145C25E0E95F00D67F2F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -249,7 +354,57 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C5916E3C25F9E52E006DEADB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C5916E2F25F9E52E006DEADB /* Loc-WidgetExtension */;
+			targetProxy = C5916E3B25F9E52E006DEADB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		C5916E3F25F9E52E006DEADB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9E8SXF3Y36;
+				INFOPLIST_FILE = "Loc-Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "co.hartl.Loc.Loc-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C5916E4025F9E52E006DEADB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9E8SXF3Y36;
+				INFOPLIST_FILE = "Loc-Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "co.hartl.Loc.Loc-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		C5F2147225E0E96000D67F2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -369,6 +524,7 @@
 		C5F2147525E0E96000D67F2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Loc/Loc.entitlements;
@@ -392,6 +548,7 @@
 		C5F2147625E0E96000D67F2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Loc/Loc.entitlements;
@@ -415,6 +572,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C5916E4125F9E52E006DEADB /* Build configuration list for PBXNativeTarget "Loc-WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5916E3F25F9E52E006DEADB /* Debug */,
+				C5916E4025F9E52E006DEADB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C5F2145B25E0E95F00D67F2F /* Build configuration list for PBXProject "Loc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -436,6 +602,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C5916E4425F9E591006DEADB /* Model */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Model;
+		};
+		C5916E4625F9E591006DEADB /* Store */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Store;
+		};
 		C59CF65425F7425000352E02 /* Model */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Model;
