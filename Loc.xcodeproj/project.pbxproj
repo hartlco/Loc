@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C51B66E025E98960005B4108 /* MKCoordinateRegion+Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B66DF25E98960005B4108 /* MKCoordinateRegion+Coordinates.swift */; };
 		C51B66E925EA2766005B4108 /* ExportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B66E825EA2766005B4108 /* ExportModel.swift */; };
+		C52AA03E25FB3AC1006855BC /* MapHelper in Frameworks */ = {isa = PBXBuildFile; productRef = C52AA03D25FB3AC1006855BC /* MapHelper */; };
+		C52AA04025FB3AC6006855BC /* MapHelper in Frameworks */ = {isa = PBXBuildFile; productRef = C52AA03F25FB3AC6006855BC /* MapHelper */; };
 		C54713A925E3782700B3F33C /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713A825E3782700B3F33C /* MapDetailView.swift */; };
 		C54713AC25E3784C00B3F33C /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713AB25E3784C00B3F33C /* DayView.swift */; };
 		C54713C025E37D7F00B3F33C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713BF25E37D7F00B3F33C /* LocationService.swift */; };
@@ -54,8 +55,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C51B66DF25E98960005B4108 /* MKCoordinateRegion+Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Coordinates.swift"; sourceTree = "<group>"; };
 		C51B66E825EA2766005B4108 /* ExportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportModel.swift; sourceTree = "<group>"; };
+		C52AA03625FB3942006855BC /* MapHelper */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MapHelper; sourceTree = "<group>"; };
 		C54713A825E3782700B3F33C /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
 		C54713AB25E3784C00B3F33C /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		C54713BF25E37D7F00B3F33C /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
@@ -84,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5916E4525F9E591006DEADB /* Model in Frameworks */,
+				C52AA03E25FB3AC1006855BC /* MapHelper in Frameworks */,
 				C5916E3425F9E52E006DEADB /* SwiftUI.framework in Frameworks */,
 				C5916E4725F9E591006DEADB /* Store in Frameworks */,
 				C5916E3225F9E52E006DEADB /* WidgetKit.framework in Frameworks */,
@@ -95,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5CADC6125F8944C003223B0 /* Store in Frameworks */,
+				C52AA04025FB3AC6006855BC /* MapHelper in Frameworks */,
 				C59CF65525F7425000352E02 /* Model in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,14 +105,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C51B66DE25E9894B005B4108 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C51B66DF25E98960005B4108 /* MKCoordinateRegion+Coordinates.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		C54713A725E3781400B3F33C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +155,7 @@
 		C5F2145725E0E95F00D67F2F = {
 			isa = PBXGroup;
 			children = (
+				C52AA03625FB3942006855BC /* MapHelper */,
 				C5CADC5B25F893AD003223B0 /* Store */,
 				C59CF64D25F73FF100352E02 /* Model */,
 				C5F2146225E0E95F00D67F2F /* Loc */,
@@ -182,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				C5CAC65E25F4A16800744D5C /* Loc.entitlements */,
-				C51B66DE25E9894B005B4108 /* Extensions */,
 				C54713BD25E37D6400B3F33C /* Services */,
 				C54713AF25E37CCB00B3F33C /* Models */,
 				C54713A725E3781400B3F33C /* Views */,
@@ -221,6 +216,7 @@
 			packageProductDependencies = (
 				C5916E4425F9E591006DEADB /* Model */,
 				C5916E4625F9E591006DEADB /* Store */,
+				C52AA03D25FB3AC1006855BC /* MapHelper */,
 			);
 			productName = "Loc-WidgetExtension";
 			productReference = C5916E3025F9E52E006DEADB /* Loc-WidgetExtension.appex */;
@@ -245,6 +241,7 @@
 			packageProductDependencies = (
 				C59CF65425F7425000352E02 /* Model */,
 				C5CADC6025F8944C003223B0 /* Store */,
+				C52AA03F25FB3AC6006855BC /* MapHelper */,
 			);
 			productName = Loc;
 			productReference = C5F2146025E0E95F00D67F2F /* Loc.app */;
@@ -346,7 +343,6 @@
 				C54713AC25E3784C00B3F33C /* DayView.swift in Sources */,
 				C5F2146625E0E95F00D67F2F /* ContentView.swift in Sources */,
 				C54713C025E37D7F00B3F33C /* LocationService.swift in Sources */,
-				C51B66E025E98960005B4108 /* MKCoordinateRegion+Coordinates.swift in Sources */,
 				C5F2146425E0E95F00D67F2F /* LocApp.swift in Sources */,
 				C5BDF6DB25E6275100EACA71 /* SettingsView.swift in Sources */,
 			);
@@ -602,6 +598,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C52AA03D25FB3AC1006855BC /* MapHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MapHelper;
+		};
+		C52AA03F25FB3AC6006855BC /* MapHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MapHelper;
+		};
 		C5916E4425F9E591006DEADB /* Model */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Model;

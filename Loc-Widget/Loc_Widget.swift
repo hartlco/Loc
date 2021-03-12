@@ -3,6 +3,8 @@ import SwiftUI
 import Model
 import Store
 import OSLog
+import MapKit
+import MapHelper
 
 struct Provider: TimelineProvider {
     let store: DayStore
@@ -12,42 +14,57 @@ struct Provider: TimelineProvider {
     }
 
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), item: nil)
+        SimpleEntry(date: Date(), item: nil, image: nil)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        let entry = SimpleEntry(date: Date(), item: nil)
+        let entry = SimpleEntry(date: Date(), item: nil, image: nil)
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         var entries: [SimpleEntry] = []
-        let first = store.allItems.first
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate,
-                                    item: first)
-            entries.append(entry)
+        guard let first = store.allItems.first else {
+            completion(Timeline(entries: [], policy: .atEnd))
+            return
         }
 
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+        let coordinate = CLLocationCoordinate2D(latitude: first.latitude,
+                                                longitude: first.longitude)
+        let region = MKCoordinateRegion(coordinates: [coordinate])
+        let snapShotter = MapSnapShotter(region: region,
+                                         coordinates: [coordinate],
+                                         size: CGSize(width: 400, height: 400))
+
+        snapShotter.snapshot { image, _ in
+            let entry = SimpleEntry(date: first.timestamp ?? Date(),
+                                    item: first,
+                                    image: image)
+            entries.append(entry)
+
+            let timeline = Timeline(entries: entries, policy: .atEnd)
+            completion(timeline)
+        }
     }
 }
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let item: Item?
+    let image: UIImage?
 }
 
 struct LocWidgetEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.item?.place?.country ?? "")
+        ZStack {
+            if let image = entry.image {
+                Image(uiImage: image)
+                    .resizable()
+            }
+            Text(entry.item?.place?.country ?? "")
+        }
     }
 }
 

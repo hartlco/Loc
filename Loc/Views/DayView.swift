@@ -2,6 +2,7 @@ import SwiftUI
 import CoreData
 import MapKit
 import Store
+import MapHelper
 
 struct DayView: View {
     let itemsStore: ItemsForDayStore
