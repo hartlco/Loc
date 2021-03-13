@@ -63,13 +63,17 @@ struct LocWidgetEntryView: View {
                 Image(uiImage: image)
                     .resizable()
             }
-            VStack {
-                Spacer()
-                Text(entry.item?.place?.name ?? entry.item?.place?.administrativeArea ?? "")
-                    .font(.caption)
-                    .multilineTextAlignment(.center)
-                Text("\(entry.item?.timestamp ?? Date(), formatter: Self.dateFormatter)")
-                    .font(.caption2)
+            if let item = entry.item {
+                VStack {
+                    Spacer()
+                    Text(item.place?.name ?? item.place?.administrativeArea ?? "")
+                        .font(.caption)
+                        .multilineTextAlignment(.center)
+                    Text("\(item.timestamp ?? Date(), formatter: Self.dateFormatter)")
+                        .font(.caption2)
+                }
+            } else {
+                Text("No location recoded")
             }
         }
     }
