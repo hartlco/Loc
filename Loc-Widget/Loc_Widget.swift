@@ -63,9 +63,23 @@ struct LocWidgetEntryView: View {
                 Image(uiImage: image)
                     .resizable()
             }
-            Text(entry.item?.place?.country ?? "")
+            VStack {
+                Spacer()
+                Text(entry.item?.place?.name ?? entry.item?.place?.administrativeArea ?? "")
+                    .font(.caption)
+                    .multilineTextAlignment(.center)
+                Text("\(entry.item?.timestamp ?? Date(), formatter: Self.dateFormatter)")
+                    .font(.caption2)
+            }
         }
     }
+
+    static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
 }
 
 @main
