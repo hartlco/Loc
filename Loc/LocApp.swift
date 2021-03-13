@@ -16,7 +16,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct LocApp: App {
-    let persistenceController = PersistenceController.shared
+    let persistenceController: PersistenceController
     let locationManager: LocationService
     let logger = Logger(subsystem: "co.hartl.Loc", category: "Main-App")
 
@@ -25,9 +25,13 @@ struct LocApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     init() {
-        let dayStore = DayStore(logger: logger)
+        self.persistenceController = PersistenceController(logger: logger)
+
+        let dayStore = DayStore(persistenceController: persistenceController, logger: logger)
         self._dayStore = StateObject(wrappedValue: dayStore)
-        self.locationManager = LocationService(itemStore: ItemStore(dayStore: dayStore,
+
+        self.locationManager = LocationService(itemStore: ItemStore(persistenceController: persistenceController,
+                                                                    dayStore: dayStore,
                                                                     logger: logger),
                                                logger: logger)
     }

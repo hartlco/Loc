@@ -94,7 +94,8 @@ struct LocWidget: Widget {
     let store: DayStore
 
     init() {
-        self.store = DayStore(logger: logger)
+        self.store = DayStore(persistenceController: PersistenceController(logger: logger),
+                              logger: logger)
     }
 
     var body: some WidgetConfiguration {

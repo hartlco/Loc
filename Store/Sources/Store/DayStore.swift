@@ -13,7 +13,7 @@ public final class DayStore: NSObject, ObservableObject {
     @Published public var allDays: [Day] = []
     @Published public var allItems: [Item] = []
 
-    public init(persistenceController: PersistenceController = .shared,
+    public init(persistenceController: PersistenceController,
                 calendar: Calendar = .current,
                 logger: Logger) {
         self.persistenceController = persistenceController
@@ -78,7 +78,9 @@ public final class DayStore: NSObject, ObservableObject {
     }
 
     public func itemsStore(for day: Day) -> ItemsForDayStore {
-        ItemsForDayStore(day: day, logger: logger)
+        ItemsForDayStore(persistenceController: persistenceController,
+                         day: day,
+                         logger: logger)
     }
 }
 

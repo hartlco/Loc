@@ -10,7 +10,7 @@ public final class ItemsForDayStore: NSObject, ObservableObject {
 
     @Published public var allItems: [Item] = []
 
-    public init(persistenceController: PersistenceController = .shared,
+    public init(persistenceController: PersistenceController,
                 day: Day,
                 logger: Logger) {
         self.persistenceController = persistenceController

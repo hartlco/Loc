@@ -9,7 +9,7 @@ public final class ItemStore {
     private let dayStore: DayStore
     private let logger: Logger
 
-    public init(persistenceController: PersistenceController = .shared,
+    public init(persistenceController: PersistenceController,
                 calendar: Calendar = .current,
                 dayStore: DayStore,
                 logger: Logger) {
