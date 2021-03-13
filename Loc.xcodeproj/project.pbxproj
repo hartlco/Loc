@@ -20,7 +20,7 @@
 		C5916E3D25F9E52E006DEADB /* Loc-WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C5916E3025F9E52E006DEADB /* Loc-WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C5916E4525F9E591006DEADB /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = C5916E4425F9E591006DEADB /* Model */; };
 		C5916E4725F9E591006DEADB /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = C5916E4625F9E591006DEADB /* Store */; };
-		C59CF65525F7425000352E02 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = C59CF65425F7425000352E02 /* Model */; };
+		C5AD5FCC25FCCA8F0052D140 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = C5AD5FCB25FCCA8F0052D140 /* Model */; };
 		C5BDF6DB25E6275100EACA71 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDF6DA25E6275100EACA71 /* SettingsView.swift */; };
 		C5CADC6125F8944C003223B0 /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = C5CADC6025F8944C003223B0 /* Store */; };
 		C5CCCA2E25EB6C2E003356CC /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CCCA2D25EB6C2E003356CC /* ExportService.swift */; };
@@ -96,9 +96,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5AD5FCC25FCCA8F0052D140 /* Model in Frameworks */,
 				C5CADC6125F8944C003223B0 /* Store in Frameworks */,
 				C52AA04025FB3AC6006855BC /* MapHelper in Frameworks */,
-				C59CF65525F7425000352E02 /* Model in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,9 +239,9 @@
 			);
 			name = Loc;
 			packageProductDependencies = (
-				C59CF65425F7425000352E02 /* Model */,
 				C5CADC6025F8944C003223B0 /* Store */,
 				C52AA03F25FB3AC6006855BC /* MapHelper */,
+				C5AD5FCB25FCCA8F0052D140 /* Model */,
 			);
 			productName = Loc;
 			productReference = C5F2146025E0E95F00D67F2F /* Loc.app */;
@@ -537,7 +537,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.hartl.Loc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -561,7 +561,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.hartl.Loc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -614,7 +614,7 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Store;
 		};
-		C59CF65425F7425000352E02 /* Model */ = {
+		C5AD5FCB25FCCA8F0052D140 /* Model */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Model;
 		};
