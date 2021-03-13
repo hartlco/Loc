@@ -2,17 +2,21 @@ import Foundation
 import MapKit
 import OSLog
 import Store
+import WidgetKit
 
 final class LocationService: NSObject {
     private let manager: CLLocationManager
     private let itemStore: ItemStore
     private let logger: Logger
+    private let widgetCenter: WidgetCenter
 
     init(itemStore: ItemStore,
-         logger: Logger) {
+         logger: Logger,
+         widgetCenter: WidgetCenter = .shared) {
         self.manager = CLLocationManager()
         self.itemStore = itemStore
         self.logger = logger
+        self.widgetCenter = widgetCenter
 
         super.init()
 
@@ -48,8 +52,11 @@ extension LocationService: CLLocationManagerDelegate {
             let geocoder = CLGeocoder()
             geocoder.reverseGeocodeLocation(
                 location,
-                completionHandler: { placemarks, _ in
+                completionHandler: { [weak self] placemarks, _ in
+                    guard let self = self else { return }
+
                     self.itemStore.storeItem(for: location, placemarks: placemarks ?? [])
+                    self.widgetCenter.reloadAllTimelines()
                 })
         }
     }
