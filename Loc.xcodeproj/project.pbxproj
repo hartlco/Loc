@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C51B66E925EA2766005B4108 /* ExportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B66E825EA2766005B4108 /* ExportModel.swift */; };
+		C52583AB25FE1F9C00B7BFFB /* WidgetLocationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52583A325FE1DB500B7BFFB /* WidgetLocationItem.swift */; };
 		C52AA03E25FB3AC1006855BC /* MapHelper in Frameworks */ = {isa = PBXBuildFile; productRef = C52AA03D25FB3AC1006855BC /* MapHelper */; };
 		C52AA04025FB3AC6006855BC /* MapHelper in Frameworks */ = {isa = PBXBuildFile; productRef = C52AA03F25FB3AC6006855BC /* MapHelper */; };
 		C54713A925E3782700B3F33C /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54713A825E3782700B3F33C /* MapDetailView.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		C51B66E825EA2766005B4108 /* ExportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportModel.swift; sourceTree = "<group>"; };
+		C52583A325FE1DB500B7BFFB /* WidgetLocationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLocationItem.swift; sourceTree = "<group>"; };
 		C52AA03625FB3942006855BC /* MapHelper */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MapHelper; sourceTree = "<group>"; };
 		C54713A825E3782700B3F33C /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
 		C54713AB25E3784C00B3F33C /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C52583A225FE1D9F00B7BFFB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C52583A325FE1DB500B7BFFB /* WidgetLocationItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C54713A725E3781400B3F33C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 		C5916E3525F9E52E006DEADB /* Loc-Widget */ = {
 			isa = PBXGroup;
 			children = (
+				C52583A225FE1D9F00B7BFFB /* Model */,
 				C5916E3625F9E52E006DEADB /* Loc_Widget.swift */,
 				C5916E3825F9E52E006DEADB /* Assets.xcassets */,
 				C5916E3A25F9E52E006DEADB /* Info.plist */,
@@ -330,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5916E3725F9E52E006DEADB /* Loc_Widget.swift in Sources */,
+				C52583AB25FE1F9C00B7BFFB /* WidgetLocationItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

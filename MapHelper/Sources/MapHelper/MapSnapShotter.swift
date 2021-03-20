@@ -1,9 +1,17 @@
 import MapKit
+import Combine
 
-public struct MapSnapShotter {
+public class MapSnapShotter {
+    public struct Snapshot {
+        public let light: UIImage
+        public let dark: UIImage
+    }
+
     private let region: MKCoordinateRegion
     private let coordinates: [CLLocationCoordinate2D]
     private let size: CGSize
+
+    private var cancellable: AnyCancellable?
 
     public init(region: MKCoordinateRegion,
                 coordinates: [CLLocationCoordinate2D],
@@ -13,39 +21,67 @@ public struct MapSnapShotter {
         self.size = size
     }
 
-    public func snapshot(completion: @escaping (UIImage?, Error?) -> Void) {
-        let options = MKMapSnapshotter.Options()
-        options.region = MKCoordinateRegion(coordinates: coordinates)
-        options.size = size
+    public func snapshot(completion: @escaping (Snapshot) -> Void) {
+        let lightOptions = MKMapSnapshotter.Options()
+        lightOptions.region = MKCoordinateRegion(coordinates: coordinates)
+        lightOptions.size = size
+        lightOptions.traitCollection = UITraitCollection(userInterfaceStyle: .light)
 
-        let snapShotter = MKMapSnapshotter(options: options)
-        snapShotter.start { snapshot, error in
+        let darkOptions = MKMapSnapshotter.Options()
+        darkOptions.region = MKCoordinateRegion(coordinates: coordinates)
+        darkOptions.size = size
+        darkOptions.traitCollection = UITraitCollection(userInterfaceStyle: .dark)
 
-            guard let snapshot = snapshot else {
-                completion(nil, error)
-                return
+        cancellable = snapshot(using: lightOptions)
+            .merge(with: snapshot(using: darkOptions))
+            .collect()
+            .receive(on: DispatchQueue.main)
+            .sink { images in
+                guard let light = images.first,
+                      let dark = images.last else { return }
+
+                completion(.init(light: light, dark: dark))
             }
+    }
 
-            // https://stackoverflow.com/a/42773351
-            let image = UIGraphicsImageRenderer(size: options.size).image { _ in
-                snapshot.image.draw(at: .zero)
-
-                for coordinate in coordinates {
-                    let pinView = MKPinAnnotationView(annotation: nil, reuseIdentifier: nil)
-                    let pinImage = pinView.image
-
-                    var point = snapshot.point(for: coordinate)
-                    point.x -= pinView.bounds.width / 2
-                    point.y -= pinView.bounds.height / 2
-                    point.x += pinView.centerOffset.x
-                    point.y += pinView.centerOffset.y
-                    pinImage?.draw(at: point)
+    private func snapshot(using options: MKMapSnapshotter.Options) -> Future<UIImage, Never> {
+        Future { promise in
+            let snapShotter = MKMapSnapshotter(options: options)
+            snapShotter.start { snapshot, _ in
+                guard let snapshot = snapshot else {
+                    return
                 }
-            }
 
-            DispatchQueue.main.async {
-                completion(image, nil)
+                // https://stackoverflow.com/a/42773351
+                let image = UIGraphicsImageRenderer(size: options.size).image { _ in
+                    snapshot.image.draw(at: .zero)
+
+                    for coordinate in self.coordinates {
+                        let pinView = MKPinAnnotationView(annotation: nil, reuseIdentifier: nil)
+                        let pinImage = pinView.image
+
+                        var point = snapshot.point(for: coordinate)
+                        point.x -= pinView.bounds.width / 2
+                        point.y -= pinView.bounds.height / 2
+                        point.x += pinView.centerOffset.x
+                        point.y += pinView.centerOffset.y
+                        pinImage?.draw(at: point)
+                    }
+                }
+
+                promise(.success(image))
             }
         }
+    }
+}
+
+public extension MapSnapShotter.Snapshot {
+    static func fromImagesNamed(light: String, dark: String) -> Self? {
+        guard let light = UIImage(named: light),
+              let dark = UIImage(named: dark) else {
+            return nil
+        }
+
+        return MapSnapShotter.Snapshot(light: light, dark: dark)
     }
 }
