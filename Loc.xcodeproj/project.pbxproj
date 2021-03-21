@@ -295,10 +295,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C5F2147425E0E96000D67F2F /* Build configuration list for PBXNativeTarget "Loc" */;
 			buildPhases = (
+				C569D68925EE134C00A64DA7 /* SwiftLint */,
 				C5F2145C25E0E95F00D67F2F /* Sources */,
 				C5F2145D25E0E95F00D67F2F /* Frameworks */,
 				C5F2145E25E0E95F00D67F2F /* Resources */,
-				C569D68925EE134C00A64DA7 /* SwiftLint */,
 				C5916E3E25F9E52E006DEADB /* Embed App Extensions */,
 			);
 			buildRules = (

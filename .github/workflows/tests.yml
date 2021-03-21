@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Bundle Install
+      run: bundle install
+    - name: Install Brew Bundle
+      run: brew bundle
+    - name: Install Mint Dependencies
+      run: mint bootstrap
+    - name: Build and test
+      run: bundle exec fastlane tests

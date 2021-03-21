@@ -7,7 +7,7 @@ class ExportModelTests: XCTestCase {
         let date = Date()
 
         let exportModel = ExportModel(items: [makeItem(date: date)])
-        
+
         XCTAssert(exportModel.items.count == 1)
         XCTAssert(exportModel.items.first?.date == date)
         XCTAssert(exportModel.items.first?.place?.name == "Prenzlauer Berg")
