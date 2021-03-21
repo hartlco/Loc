@@ -135,6 +135,7 @@ struct LocWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider(store: store)) { entry in
             LocWidgetEntryView(entry: entry)
         }
+        .supportedFamilies([.systemSmall])
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
     }
