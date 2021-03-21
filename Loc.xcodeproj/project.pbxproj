@@ -21,6 +21,8 @@
 		C5916E3D25F9E52E006DEADB /* Loc-WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C5916E3025F9E52E006DEADB /* Loc-WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C5916E4525F9E591006DEADB /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = C5916E4425F9E591006DEADB /* Model */; };
 		C5916E4725F9E591006DEADB /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = C5916E4625F9E591006DEADB /* Store */; };
+		C59371BF260719040013D99F /* ExportModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59371BE260719040013D99F /* ExportModelTests.swift */; };
+		C59371C826071DE00013D99F /* MockModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59371C726071DE00013D99F /* MockModels.swift */; };
 		C5AD5FCC25FCCA8F0052D140 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = C5AD5FCB25FCCA8F0052D140 /* Model */; };
 		C5BDF6DB25E6275100EACA71 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDF6DA25E6275100EACA71 /* SettingsView.swift */; };
 		C5CADC6125F8944C003223B0 /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = C5CADC6025F8944C003223B0 /* Store */; };
@@ -38,6 +40,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C5916E2F25F9E52E006DEADB;
 			remoteInfo = "Loc-WidgetExtension";
+		};
+		C59371B6260718AE0013D99F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5F2145825E0E95F00D67F2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C5F2145F25E0E95F00D67F2F;
+			remoteInfo = Loc;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -68,6 +77,10 @@
 		C5916E3625F9E52E006DEADB /* Loc_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loc_Widget.swift; sourceTree = "<group>"; };
 		C5916E3825F9E52E006DEADB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5916E3A25F9E52E006DEADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C59371B1260718AE0013D99F /* LocTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C59371B5260718AE0013D99F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C59371BE260719040013D99F /* ExportModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportModelTests.swift; sourceTree = "<group>"; };
+		C59371C726071DE00013D99F /* MockModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModels.swift; sourceTree = "<group>"; };
 		C59CF64D25F73FF100352E02 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
 		C5BDF6DA25E6275100EACA71 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C5CAC65E25F4A16800744D5C /* Loc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Loc.entitlements; sourceTree = "<group>"; };
@@ -91,6 +104,13 @@
 				C5916E3425F9E52E006DEADB /* SwiftUI.framework in Frameworks */,
 				C5916E4725F9E591006DEADB /* Store in Frameworks */,
 				C5916E3225F9E52E006DEADB /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C59371AE260718AE0013D99F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +174,24 @@
 			path = "Loc-Widget";
 			sourceTree = "<group>";
 		};
+		C59371B2260718AE0013D99F /* LocTests */ = {
+			isa = PBXGroup;
+			children = (
+				C59371C626071DCD0013D99F /* Mocks */,
+				C59371B5260718AE0013D99F /* Info.plist */,
+				C59371BE260719040013D99F /* ExportModelTests.swift */,
+			);
+			path = LocTests;
+			sourceTree = "<group>";
+		};
+		C59371C626071DCD0013D99F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				C59371C726071DE00013D99F /* MockModels.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		C59CF65325F7425000352E02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +209,7 @@
 				C59CF64D25F73FF100352E02 /* Model */,
 				C5F2146225E0E95F00D67F2F /* Loc */,
 				C5916E3525F9E52E006DEADB /* Loc-Widget */,
+				C59371B2260718AE0013D99F /* LocTests */,
 				C5F2146125E0E95F00D67F2F /* Products */,
 				C59CF65325F7425000352E02 /* Frameworks */,
 			);
@@ -181,6 +220,7 @@
 			children = (
 				C5F2146025E0E95F00D67F2F /* Loc.app */,
 				C5916E3025F9E52E006DEADB /* Loc-WidgetExtension.appex */,
+				C59371B1260718AE0013D99F /* LocTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,6 +273,24 @@
 			productReference = C5916E3025F9E52E006DEADB /* Loc-WidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		C59371B0260718AE0013D99F /* LocTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C59371BA260718AE0013D99F /* Build configuration list for PBXNativeTarget "LocTests" */;
+			buildPhases = (
+				C59371AD260718AE0013D99F /* Sources */,
+				C59371AE260718AE0013D99F /* Frameworks */,
+				C59371AF260718AE0013D99F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C59371B7260718AE0013D99F /* PBXTargetDependency */,
+			);
+			name = LocTests;
+			productName = LocTests;
+			productReference = C59371B1260718AE0013D99F /* LocTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C5F2145F25E0E95F00D67F2F /* Loc */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C5F2147425E0E96000D67F2F /* Build configuration list for PBXNativeTarget "Loc" */;
@@ -270,6 +328,10 @@
 					C5916E2F25F9E52E006DEADB = {
 						CreatedOnToolsVersion = 12.4;
 					};
+					C59371B0260718AE0013D99F = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = C5F2145F25E0E95F00D67F2F;
+					};
 					C5F2145F25E0E95F00D67F2F = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -290,6 +352,7 @@
 			targets = (
 				C5F2145F25E0E95F00D67F2F /* Loc */,
 				C5916E2F25F9E52E006DEADB /* Loc-WidgetExtension */,
+				C59371B0260718AE0013D99F /* LocTests */,
 			);
 		};
 /* End PBXProject section */
@@ -300,6 +363,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5916E3925F9E52E006DEADB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C59371AF260718AE0013D99F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +415,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C59371AD260718AE0013D99F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C59371BF260719040013D99F /* ExportModelTests.swift in Sources */,
+				C59371C826071DE00013D99F /* MockModels.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C5F2145C25E0E95F00D67F2F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,6 +446,11 @@
 			isa = PBXTargetDependency;
 			target = C5916E2F25F9E52E006DEADB /* Loc-WidgetExtension */;
 			targetProxy = C5916E3B25F9E52E006DEADB /* PBXContainerItemProxy */;
+		};
+		C59371B7260718AE0013D99F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C5F2145F25E0E95F00D67F2F /* Loc */;
+			targetProxy = C59371B6260718AE0013D99F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -410,6 +494,44 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C59371B8260718AE0013D99F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LocTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.hartl.LocTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Loc.app/Loc";
+			};
+			name = Debug;
+		};
+		C59371B9260718AE0013D99F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LocTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.hartl.LocTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Loc.app/Loc";
 			};
 			name = Release;
 		};
@@ -585,6 +707,15 @@
 			buildConfigurations = (
 				C5916E3F25F9E52E006DEADB /* Debug */,
 				C5916E4025F9E52E006DEADB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C59371BA260718AE0013D99F /* Build configuration list for PBXNativeTarget "LocTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C59371B8260718AE0013D99F /* Debug */,
+				C59371B9260718AE0013D99F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
