@@ -7,6 +7,7 @@ public final class ItemsForDayStore: NSObject, ObservableObject {
     private let persistenceController: PersistenceController
     private let itemsController: NSFetchedResultsController<Item>
     private let logger: Logger
+    private let day: Day
 
     @Published public var allItems: [Item] = []
 
@@ -19,17 +20,20 @@ public final class ItemsForDayStore: NSObject, ObservableObject {
                                      sectionNameKeyPath: nil,
                                      cacheName: nil)
         self.logger = logger
+        self.day = day
 
         super.init()
 
         self.itemsController.delegate = self
+    }
 
+    public func load() {
         do {
-            logger.info("Fetching allItem for day: \(day)")
+            logger.info("Fetching allItem for day: \(self.day)")
             try itemsController.performFetch()
             allItems = itemsController.fetchedObjects ?? []
         } catch {
-            logger.critical("Failed to fetch items for day: \(day)")
+            logger.critical("Failed to fetch items for day: \(self.day)")
         }
     }
 

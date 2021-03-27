@@ -2,6 +2,7 @@ import SwiftUI
 import CoreData
 import MapKit
 import Store
+import Model
 
 struct ContentView: View {
     let dayStore: DayStore

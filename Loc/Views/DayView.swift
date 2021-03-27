@@ -5,20 +5,12 @@ import Store
 import MapHelper
 
 struct DayView: View {
-    let itemsStore: ItemsForDayStore
-
+    @ObservedObject var itemsStore: ItemsForDayStore
     @State private var region: MKCoordinateRegion
 
     init(itemsStore: ItemsForDayStore) {
         self.itemsStore = itemsStore
-
-        let allItems = itemsStore.allItems
-        let locations = allItems.map {
-            CLLocationCoordinate2D(latitude: $0.latitude,
-                                   longitude: $0.longitude)
-        }
-
-        self._region = State<MKCoordinateRegion>(initialValue: MKCoordinateRegion(coordinates: locations))
+        self._region = State<MKCoordinateRegion>(initialValue: MKCoordinateRegion(coordinates: []))
     }
 
     var body: some View {
@@ -44,6 +36,20 @@ struct DayView: View {
             .onDelete(perform: deleteItems)
         }
         .navigationTitle("Locations")
+        .onAppear {
+            load()
+        }
+    }
+
+    private func load() {
+        itemsStore.load()
+        let allItems = itemsStore.allItems
+        let locations = allItems.map {
+            CLLocationCoordinate2D(latitude: $0.latitude,
+                                   longitude: $0.longitude)
+        }
+
+        region = MKCoordinateRegion(coordinates: locations)
     }
 
     private func deleteItems(offsets: IndexSet) {
