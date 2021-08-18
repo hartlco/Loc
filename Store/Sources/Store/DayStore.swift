@@ -31,7 +31,13 @@ public final class DayStore: NSObject, ObservableObject {
 
         super.init()
 
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(managedObjectsDidChangeHandler(notification:)),
+                                               name: .NSManagedObjectContextDidSave,
+                                               object: persistenceController.container.viewContext)
+
         self.daysController.delegate = self
+        self.itemsController.delegate = self
 
         do {
             logger.info("Fetching allDays")
@@ -82,16 +88,43 @@ public final class DayStore: NSObject, ObservableObject {
                          day: day,
                          logger: logger)
     }
+
+    public func itemStore(for item: Item) -> ItemStore {
+        ItemStore(
+            persistenceController: persistenceController,
+            calendar: calendar,
+            dayStore: self,
+            logger: logger,
+            item: item
+        )
+    }
+
+    public func items(for day: Day) -> [Item] {
+        return allItems.filter { item in
+            item.day == day
+        }
+    }
+
+    @objc private func managedObjectsDidChangeHandler(notification: NSNotification) {
+        do {
+            logger.info("Fetching allDays")
+            try daysController.performFetch()
+            allDays = daysController.fetchedObjects ?? []
+        } catch {
+            logger.critical("Failed to fetch allDays")
+        }
+
+        do {
+            logger.info("Fetching allItems")
+            try itemsController.performFetch()
+            allItems = itemsController.fetchedObjects ?? []
+        } catch {
+            logger.critical("Failed to fetch allItems")
+        }
+    }
 }
 
 extension DayStore: NSFetchedResultsControllerDelegate {
     public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        if let allDays = controller.fetchedObjects as? [Day] {
-            self.allDays = allDays
-        }
-
-        if let allItems = controller.fetchedObjects as? [Item] {
-            self.allItems = allItems
-        }
     }
 }

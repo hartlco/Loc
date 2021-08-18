@@ -8,6 +8,7 @@ public protocol ItemProtocol {
 
     func getDay() -> DayProtocol?
     func getPlace() -> PlaceProtocol?
+    func getNote() -> NoteProtocol?
 }
 
 extension Item: ItemProtocol {
@@ -17,6 +18,10 @@ extension Item: ItemProtocol {
 
     public func getDay() -> DayProtocol? {
         return day
+    }
+
+    public func getNote() -> NoteProtocol? {
+        return note
     }
 
     public static func allRequest() -> NSFetchRequest<Item> {

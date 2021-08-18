@@ -5,7 +5,7 @@ import Store
 import Model
 
 struct ContentView: View {
-    let dayStore: DayStore
+    @ObservedObject var dayStore: DayStore
     let locationService: LocationService
 
     var body: some View {
@@ -21,18 +21,44 @@ struct ContentView: View {
                 })
             }
             ForEach(dayStore.allDays) { day in
-                NavigationLink(
-                    destination: DayView(itemsStore: dayStore.itemsStore(for: day))) {
-                    Text("\(day.simplifiedDate ?? Date(), formatter: Self.dayDateFormatter)")
+                Section {
+                    ForEach(day.getItems()) { item in
+                        NavigationLink(
+                            destination: ItemDetailView(itemStore: dayStore.itemStore(for: item))) {
+                                VStack(alignment: .leading) {
+                                    Text(item.note?.title ?? "")
+                                        .font(.headline)
+                                    HStack {
+                                        Text("\(item.place?.name ?? "")")
+                                        Text("\(item.place?.administrativeArea ?? "")")
+                                    }
+                                    Text(item.timestamp?.formatted(date: .omitted, time: .standard) ?? "")
+                                        .font(.caption)
+                                }
+                            }
+                    }
+                } header: {
+                    Text(day.simplifiedDate?.formatted(date: .long, time: .omitted) ?? "")
                 }
             }
         }
         .navigationTitle("Days")
     }
+}
 
-    static let dayDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        return formatter
-    }()
+struct ItemDetailView: View {
+    @ObservedObject var itemStore: ItemStore
+
+    var body: some View {
+        VStack {
+            TextField("Title", text: $itemStore.title)
+                .onSubmit {
+                    itemStore.save()
+                }
+            TextEditor(text: $itemStore.body)
+                .onSubmit {
+                    itemStore.save()
+                }
+        }
+    }
 }
