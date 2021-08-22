@@ -28,6 +28,8 @@ struct ContentView: View {
                                 VStack(alignment: .leading) {
                                     Text(item.note?.title ?? "")
                                         .font(.headline)
+                                    Text(item.note?.body ?? "")
+                                        .font(.body)
                                     HStack {
                                         Text("\(item.place?.name ?? "")")
                                         Text("\(item.place?.administrativeArea ?? "")")
