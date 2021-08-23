@@ -31,6 +31,8 @@
 		C5F2146625E0E95F00D67F2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2146525E0E95F00D67F2F /* ContentView.swift */; };
 		C5F2146825E0E96000D67F2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5F2146725E0E96000D67F2F /* Assets.xcassets */; };
 		C5F2146B25E0E96000D67F2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5F2146A25E0E96000D67F2F /* Preview Assets.xcassets */; };
+		C5FA4BF926D3709E00A4C784 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA4BF826D3709E00A4C784 /* PhotoService.swift */; };
+		C5FA4BFC26D37E6000A4C784 /* TimelineStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA4BFB26D37E6000A4C784 /* TimelineStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,8 @@
 		C5F2146725E0E96000D67F2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5F2146A25E0E96000D67F2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C5F2147125E0E96000D67F2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5FA4BF826D3709E00A4C784 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		C5FA4BFB26D37E6000A4C784 /* TimelineStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 			children = (
 				C54713BF25E37D7F00B3F33C /* LocationService.swift */,
 				C5CCCA2D25EB6C2E003356CC /* ExportService.swift */,
+				C5FA4BF826D3709E00A4C784 /* PhotoService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 		C5F2146225E0E95F00D67F2F /* Loc */ = {
 			isa = PBXGroup;
 			children = (
+				C5FA4BFA26D37E5600A4C784 /* Store */,
 				C5CAC65E25F4A16800744D5C /* Loc.entitlements */,
 				C54713BD25E37D6400B3F33C /* Services */,
 				C54713AF25E37CCB00B3F33C /* Models */,
@@ -246,6 +252,14 @@
 				C5F2146A25E0E96000D67F2F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C5FA4BFA26D37E5600A4C784 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				C5FA4BFB26D37E6000A4C784 /* TimelineStore.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,6 +444,8 @@
 			files = (
 				C51B66E925EA2766005B4108 /* ExportModel.swift in Sources */,
 				C5CCCA2E25EB6C2E003356CC /* ExportService.swift in Sources */,
+				C5FA4BFC26D37E6000A4C784 /* TimelineStore.swift in Sources */,
+				C5FA4BF926D3709E00A4C784 /* PhotoService.swift in Sources */,
 				C54713A925E3782700B3F33C /* MapDetailView.swift in Sources */,
 				C54713AC25E3784C00B3F33C /* DayView.swift in Sources */,
 				C5F2146625E0E95F00D67F2F /* ContentView.swift in Sources */,

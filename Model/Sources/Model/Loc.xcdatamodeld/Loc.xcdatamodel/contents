@@ -4,11 +4,16 @@
         <attribute name="simplifiedDate" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="items" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="day" inverseEntity="Item"/>
     </entity>
+    <entity name="Image" representedClassName="Image" syncable="YES" codeGenerationType="class">
+        <attribute name="path" optional="YES" attributeType="String"/>
+        <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="image" inverseEntity="Item"/>
+    </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="day" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="items" inverseEntity="Day"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="item" inverseEntity="Image"/>
         <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="item" inverseEntity="Note"/>
         <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="item" inverseEntity="Place"/>
     </entity>
@@ -26,8 +31,9 @@
     </entity>
     <elements>
         <element name="Day" positionX="-54" positionY="45" width="128" height="59"/>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="119"/>
-        <element name="Place" positionX="-63" positionY="9" width="128" height="104"/>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="134"/>
         <element name="Note" positionX="-54" positionY="45" width="128" height="74"/>
+        <element name="Place" positionX="-63" positionY="9" width="128" height="104"/>
+        <element name="Image" positionX="-54" positionY="45" width="128" height="59"/>
     </elements>
 </model>

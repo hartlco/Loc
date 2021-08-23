@@ -19,6 +19,7 @@ struct LocApp: App {
     let persistenceController: PersistenceController
     let locationManager: LocationService
     let logger = Logger(subsystem: "co.hartl.Loc", category: "Main-App")
+    let photoService = PhotoService()
 
     @StateObject var dayStore: DayStore
     @State private var showsSettings = false
@@ -34,6 +35,8 @@ struct LocApp: App {
                                                                     dayStore: dayStore,
                                                                     logger: logger),
                                                logger: logger)
+
+        photoService.requestAccess()
     }
 
     var body: some Scene {
