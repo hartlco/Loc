@@ -25,6 +25,8 @@ struct LocApp: App {
     @State private var showsSettings = false
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
+    @StateObject var timelineStore: TimelineStore
+
     init() {
         self.persistenceController = PersistenceController(logger: logger)
 
@@ -35,6 +37,8 @@ struct LocApp: App {
                                                                     dayStore: dayStore,
                                                                     logger: logger),
                                                logger: logger)
+        let timelineStore = TimelineStore(dayStore: dayStore)
+        self._timelineStore = StateObject(wrappedValue: timelineStore)
 
         photoService.requestAccess()
     }
@@ -42,7 +46,9 @@ struct LocApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView(dayStore: dayStore, locationService: locationManager)
+                ContentView(dayStore: dayStore,
+                            timelineStore: timelineStore,
+                            locationService: locationManager)
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
             .toolbar {

@@ -1,7 +1,5 @@
 import Foundation
-import Model
 import UIKit
-import Store
 import Combine
 import PhotosUI
 
@@ -27,7 +25,7 @@ final class TimelineStore: ObservableObject {
             }
         }
 
-        case entry(Item)
+        case entry(ItemProtocol)
         case photoSuggestion([PHAsset])
     }
 

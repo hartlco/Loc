@@ -1,8 +1,5 @@
 import SwiftUI
-import CoreData
 import MapKit
-import Store
-import Model
 import Photos
 
 struct ContentView: View {
