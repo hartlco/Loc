@@ -6,3 +6,10 @@ public protocol PlaceProtocol {
     var country: String? { get }
     var administrativeArea: String? { get }
 }
+
+struct Place: PlaceProtocol {
+    var name: String?
+    var isoCountryCode: String?
+    var country: String?
+    var administrativeArea: String?
+}
