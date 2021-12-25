@@ -19,7 +19,7 @@ struct ExportModel: Codable {
 }
 
 extension ExportModel {
-    init(items: [ItemProtocol]) {
+    init(items: [Item]) {
         self.items = items.compactMap { item in
             ExportItem(item: item)
         }
@@ -27,7 +27,7 @@ extension ExportModel {
 }
 
 extension ExportModel.ExportItem {
-    init?(item: ItemProtocol) {
+    init?(item: Item) {
         guard let timestamp = item.timestamp else {
             return nil
         }
@@ -42,7 +42,7 @@ extension ExportModel.ExportItem {
 }
 
 extension ExportModel.Place {
-    init(place: PlaceProtocol) {
+    init(place: Place) {
         if let name = place.name,
            !name.isEmpty {
             self.name = name

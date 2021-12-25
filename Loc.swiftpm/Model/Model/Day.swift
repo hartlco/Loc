@@ -1,9 +1,5 @@
 import Foundation
 
-public protocol DayProtocol {
-    var simplifiedDate: Date? { get }
-}
-
-struct Day: DayProtocol {
+public struct Day: Codable {
     var simplifiedDate: Date?
 }

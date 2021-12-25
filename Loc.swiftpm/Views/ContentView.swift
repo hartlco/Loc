@@ -12,11 +12,15 @@ struct ContentView: View {
         List {
             if !locationService.hasLocationPermission {
                 Button(action: {
-                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                    UIApplication.shared.open(
+                        URL(string: UIApplication.openSettingsURLString)!
+                    )
                 }, label: {
                     Label(
                         title: { Text("Location Service disabled") },
-                        icon: { Image(systemName: "exclamationmark.triangle.fill") }
+                        icon: { Image(systemName: "exclamationmark.triangle.fill"
+                        ) 
+                        }
                     )
                 })
             }
@@ -53,7 +57,9 @@ struct ContentView: View {
                         }
                     }
                 } header: {
-                    Text(day.simplifiedDate.formatted(date: .long, time: .omitted) ?? "")
+                    Text(
+                        day.simplifiedDate.formatted(date: .long, time: .omitted) ?? ""
+                    )
                 }
             }
         }

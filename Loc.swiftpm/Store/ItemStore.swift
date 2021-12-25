@@ -6,7 +6,7 @@ public final class ItemStore: ObservableObject {
     private let calendar: Calendar
     private let dayStore: DayStore
     private let logger: Logger
-    private var item: ItemProtocol?
+    private var item: Item?
 
     @Published public var title: String = "" {
         didSet {
@@ -23,7 +23,7 @@ public final class ItemStore: ObservableObject {
     public init(calendar: Calendar = .current,
                 dayStore: DayStore,
                 logger: Logger,
-                item: ItemProtocol? = nil) {
+                item: Item? = nil) {
         self.calendar = calendar
         self.dayStore = dayStore
         self.logger = logger

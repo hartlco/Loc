@@ -3,11 +3,11 @@ import OSLog
 
 public final class ItemsForDayStore: NSObject, ObservableObject {
     private let logger: Logger
-    private let day: DayProtocol
+    private let day: Day
 
-    @Published public var allItems: [ItemProtocol] = []
+    @Published public var allItems: [Item] = []
 
-    public init(day: DayProtocol,
+    public init(day: Day,
                 logger: Logger) {
         self.logger = logger
         self.day = day
@@ -19,6 +19,6 @@ public final class ItemsForDayStore: NSObject, ObservableObject {
 
     }
 
-    public func delete(item: ItemProtocol) {
+    public func delete(item: Item) {
     }
 }

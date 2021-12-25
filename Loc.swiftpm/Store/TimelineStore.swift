@@ -25,7 +25,7 @@ final class TimelineStore: ObservableObject {
             }
         }
 
-        case entry(ItemProtocol)
+        case entry(Item)
         case photoSuggestion([PHAsset])
     }
 

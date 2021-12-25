@@ -3,9 +3,9 @@ import MapKit
 
 struct MapDetailView: View {
     @State private var region: MKCoordinateRegion
-    private let item: ItemProtocol
+    private let item: Item
 
-    init(item: ItemProtocol) {
+    init(item: Item) {
         let coordinate = CLLocationCoordinate2D(latitude: item.latitude, longitude: item.longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: coordinate, span: span )
