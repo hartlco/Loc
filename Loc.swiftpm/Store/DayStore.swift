@@ -7,7 +7,11 @@ public final class DayStore: NSObject, ObservableObject {
     
     private let userDefaults: UserDefaults
 
-    @Published public var allDays: [Day] = []
+    @Published public var allDays: [Day] {
+        didSet {
+            userDefaults.allDays = allDays
+        }
+    }
     @Published public var allItems: [Item] {
         didSet {
             userDefaults.allItems = allItems
@@ -23,6 +27,7 @@ public final class DayStore: NSObject, ObservableObject {
         self.userDefaults = userDefautls
         self.logger = logger
         self.allItems = userDefautls.allItems
+        self.allDays = userDefautls.allDays
         
         super.init()
     }

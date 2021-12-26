@@ -7,10 +7,13 @@ struct MyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView(
-                dayStore: dayStore,
-                timelineStore: TimelineStore(dayStore: dayStore),
-                locationService: locationService)
+            NavigationView {
+                ContentView(
+                    dayStore: dayStore,
+                    timelineStore: TimelineStore(dayStore: dayStore),
+                    locationService: locationService
+                )
+            }
         }
     }
 

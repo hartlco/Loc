@@ -63,6 +63,11 @@ struct ContentView: View {
                 }
             }
         }
+        .toolbar{ 
+            Button("Add") { 
+                
+            }
+        }
         .navigationTitle("Days")
     }
 }
