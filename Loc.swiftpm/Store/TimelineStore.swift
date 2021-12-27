@@ -47,7 +47,7 @@ final class TimelineStore: ObservableObject {
 
                 // TODO: OMG fix
                 let photos = self.photoService.photos(from: Date(),
-                                                      back: 30)
+                                                      back: 2)
 
                 var dict = [Date: [Entry]]()
 
