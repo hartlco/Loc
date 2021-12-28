@@ -62,6 +62,8 @@ final class PhotoService {
 
         let endDate = calendar.date(byAdding: .day, value: -days, to: newDate) ?? Date()
 
+        print(newDate)
+        print(endDate)
         let fetchOptions = PHFetchOptions()
         fetchOptions.predicate = NSPredicate(
             format: "creationDate > %@ AND creationDate < %@",

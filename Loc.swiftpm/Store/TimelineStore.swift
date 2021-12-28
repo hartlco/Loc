@@ -51,14 +51,14 @@ final class TimelineStore: ObservableObject {
 
                 var dict = [Date: [Entry]]()
 
-                for index in 0..<photos.count {
-                    let photo = photos[index]
-                    var entries = dict[photo.creationDate!.simplifiedDate()] ?? []
-
-                    entries.append(.photoSuggestion([photo]))
-
-                    dict[photo.creationDate!.simplifiedDate()] = entries
-                }
+//                for index in 0..<photos.count {
+//                    let photo = photos[index]
+//                    var entries = dict[photo.creationDate!.simplifiedDate()] ?? []
+//
+//                    entries.append(.photoSuggestion([photo]))
+//
+//                    dict[photo.creationDate!.simplifiedDate()] = entries
+//                }
 
                 let mappedEntries: [TimelineStore.Day] = days.map { day in
                     var entries = [Entry]()

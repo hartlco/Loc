@@ -30,6 +30,9 @@ public final class DayStore: NSObject, ObservableObject {
         self.allDays = userDefautls.allDays
         
         super.init()
+        
+        print("Number of items: \(allItems.count)")
+        print("Number of days: \(allDays.count)")
     }
 
     public func dayForNow() -> Day {
@@ -64,30 +67,65 @@ public final class DayStore: NSObject, ObservableObject {
             item.day?.simplifiedDate == day.simplifiedDate
         }
     }
+    
+    public func insertItem() {
+        print("Number of items: \(allItems.count)")
+        print("Number of days: \(allDays.count)")
+        
+        let date = Date()
+        let day = Day(simplifiedDate: date)
+        let note = Note(title: "Test", body: "insert")
+        
+        let item = Item(
+            timestamp: Date(), 
+            longitude: 0.0, 
+            latitude: 0.0, 
+            note: note, 
+            day: day, 
+            place: nil, 
+            id: UUID().uuidString
+        )
+        
+        allItems.append(item)
+        allDays.append(day)
+        
+        print("Number of items: \(allItems.count)")
+        print("Number of days: \(allDays.count)")
+    }
 }
 
 extension UserDefaults {
     var allDays: [Day] {
         get {    
-            guard let days = value(forKey: #function) as? [Day] else {
-                return []
-            }
-            return days
+            guard let data = data(forKey: #function),
+                  let items = try? JSONDecoder().decode([Day].self, from: data) else { 
+                      return []
+                  }
+            return items
         }
         set {
-            setValue(newValue, forKey: #function)
+            guard let data = try? JSONEncoder().encode(newValue) else {
+                return
+            }
+            
+            set(data, forKey: #function)
         }
     }
     
     var allItems: [Item] {
-        get {    
-            guard let items = value(forKey: #function) as? [Item] else {
-                return []
-            }
+        get {
+            guard let data = data(forKey: #function),
+                  let items = try? JSONDecoder().decode([Item].self, from: data) else { 
+                      return []
+                  }
             return items
         }
         set {
-            setValue(newValue, forKey: #function)
+            guard let data = try? JSONEncoder().encode(newValue) else {
+                return
+            }
+            
+            set(data, forKey: #function)
         }
     }
 }
