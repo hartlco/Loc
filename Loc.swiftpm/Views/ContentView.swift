@@ -65,7 +65,7 @@ struct ContentView: View {
         }
         .toolbar{ 
             Button("Add") { 
-                
+                dayStore.insertItem()
             }
         }
         .navigationTitle("Days")
